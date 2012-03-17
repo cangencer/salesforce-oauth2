@@ -32,17 +32,24 @@ app.get('/oauth/callback', function(request, response) {
 
 		The payload should contain the following fields:
 		
-		id 				A URL, representing the authenticated user, which can be used to access the Identity Service.
+		id 				A URL, representing the authenticated user,
+						which can be used to access the Identity Service.
 		
-		issued_at		The time of token issue, represented as the number of seconds since the Unix epoch (00:00:00 UTC on 1 January 1970).
+		issued_at		The time of token issue, represented as the 
+						number of seconds since the Unix epoch
+						(00:00:00 UTC on 1 January 1970).
 		
-		refresh_token	A long-lived token that may be used to obtain a fresh access token on expiry of the access token in this response. 
-		instance_url	Identifies the Salesforce instance to which API calls should be sent.
+		refresh_token	A long-lived token that may be used to obtain
+						a fresh access token on expiry of the access 
+						token in this response. 
+
+		instance_url	Identifies the Salesforce instance to which API
+						calls should be sent.
 		
 		access_token	The short-lived access token.
 
-		The additional signature field will be verified automatically and can be ignored.
-		
+		The signature field will be verified automatically and can be ignored.
+
 		*/
 	});
 });
