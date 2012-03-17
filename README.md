@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This is a very lightweight implementation of the [OAuth2 Web Server Authentication Flow for Salesforce](http://wiki.developerforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com).
+A very lightweight implementation of the [OAuth2 Web Server Authentication Flow for Salesforce](http://wiki.developerforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com) for Node.js.
 
 As Salesforce already provides a very robust REST API, the aim of this module is to provide a very thin wrapper for the authentication functionality only.
 
@@ -53,7 +53,7 @@ app.get('/oauth/callback', function(request, response) {
 
 		At this point, the client application can use the access token to authorize requests 
 		against the resource server (the Force.com instance specified by the instance URL) 
-		via the REST APIs (6), providing the access token as an HTTP header in 
+		via the REST APIs, providing the access token as an HTTP header in 
 		each request:
 
 		Authorization: OAuth 00D50000000IZ3Z!AQ0AQDpEDKYsn7ioKug2aSmgCjgrPjG...
