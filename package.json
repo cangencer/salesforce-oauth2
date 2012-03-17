@@ -20,5 +20,5 @@
   "devDependencies": {
     "mocha": "~0.14.1"
   },
-  "optionalDependencies": {},  
+  "optionalDependencies": {}
 }

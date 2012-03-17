@@ -27,7 +27,7 @@ app.get('/', function(request, response) {
 
 app.get('/oauth/callback', function(request, response) {	
 	var consumerSecret = '<your consumer secret>';
-	auth.authorize(consumerSecret, request.param('code'), function(error, payload) {		
+	auth.authenticate(consumerSecret, request.param('code'), function(error, payload) {		
 		/*
 
 		The payload should contain the following fields:
