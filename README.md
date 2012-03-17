@@ -48,8 +48,15 @@ app.get('/oauth/callback', function(request, response) {
 		
 		access_token	The short-lived access token.
 
+
 		The signature field will be verified automatically and can be ignored.
 
+		At this point, the client application can use the access token to authorize requests 
+		against the resource server (the Force.com instance specified by the instance URL) 
+		via the REST APIs (6), providing the access token as an HTTP header in 
+		each request:
+
+		Authorization: OAuth 00D50000000IZ3Z!AQ0AQDpEDKYsn7ioKug2aSmgCjgrPjG...
 		*/
 	});
 });
