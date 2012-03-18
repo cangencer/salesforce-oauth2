@@ -11,23 +11,33 @@ As Salesforce already provides a very robust REST API, the aim of this module is
 An example using the express web framework:
 
 ````javascript
-var OAuth2 = require('salesforce-oauth2');
+var express = require('express');
+var oauth2 = require('salesforce-oauth2');
 
-var auth = new OAuth2({
-	'consumerKey': '<your consumer key>',
-	'callbackUrl': '<your callback url>'
-});
+var app = express.createServer(express.logger());
 
-app.get('/', function(request, response) {
-	var uri = auth.getAuthorizationUrl({
+var callbackUrl = "<your callback url>";
+var consumerKey = "<your consumer key>";
+var consumerSecret = "<your consumer secret>";
+
+app.get("/", function(request, response) {
+	var uri = oauth2.getAuthorizationUrl({
+		redirect_uri: callbackUrl,
+		client_id: consumerKey,
 		scope: 'api'
 	});
 	return response.redirect(uri);
 });
 
-app.get('/oauth/callback', function(request, response) {	
-	var consumerSecret = '<your consumer secret>';
-	auth.authenticate(consumerSecret, request.param('code'), function(error, payload) {		
+app.get('/oauth/callback', function(request, response) {
+	var authorizationCode = request.param('code');
+
+	oauth2.authenticate({
+		redirect_uri: callbackUrl,
+		client_id: consumerKey,
+		client_secret: consumerSecret,
+		code: authorizationCode
+	}, function(error, payload) {
 		/*
 
 		The payload should contain the following fields:
@@ -58,6 +68,10 @@ app.get('/oauth/callback', function(request, response) {
 
 		Authorization: OAuth 00D50000000IZ3Z!AQ0AQDpEDKYsn7ioKug2aSmgCjgrPjG...
 		*/
-	});
+	});	
+});
+
+app.listen(3000, function() {
+	console.log("Listening on 3000");
 });
 ````
