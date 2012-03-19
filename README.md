@@ -6,6 +6,10 @@ A very lightweight implementation of the [OAuth2 Web Server Authentication Flow 
 
 As Salesforce already provides a very robust REST API, the aim of this module is to provide a very thin wrapper for the authentication functionality only.
 
+## Install
+
+  npm install salesforce-oauth2
+
 ## Usage 
 
 An example using the express web framework:
