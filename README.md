@@ -8,7 +8,7 @@ As Salesforce already provides a very robust REST API, the aim of this module is
 
 ## Install
 
-  npm install salesforce-oauth2
+	npm install salesforce-oauth2
 
 ## Usage 
 
