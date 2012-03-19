@@ -11,14 +11,14 @@ As Salesforce already provides a very robust REST API, the aim of this module is
 An example using the express web framework:
 
 ````javascript
-var express = require('express');
-var oauth2 = require('salesforce-oauth2');
+var express = require('express'),
+	oauth2 = require('salesforce-oauth2');
+
+var callbackUrl = "<your callback url>",
+	consumerKey = "<your consumer key>",
+	consumerSecret = "<your consumer secret>";
 
 var app = express.createServer(express.logger());
-
-var callbackUrl = "<your callback url>";
-var consumerKey = "<your consumer key>";
-var consumerSecret = "<your consumer secret>";
 
 app.get("/", function(request, response) {
 	var uri = oauth2.getAuthorizationUrl({
