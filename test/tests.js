@@ -1,3 +1,5 @@
+/*global describe, it*/
+
 var should = require("should"),
     _ = require('underscore'),
     nock = require('nock');
