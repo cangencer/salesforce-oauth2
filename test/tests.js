@@ -42,7 +42,7 @@ describe("tokens", function () {
                 .post(expectedPath)
                 .reply(200, mockResponse);
 
-            oauth2.authenticate(options, function (error, payload) {
+            oauth2.authenticate(options, true, function (error, payload) {
                 should.not.exist(error);
                 payload.should.eql(mockResponse);
                 login.done();
@@ -55,7 +55,7 @@ describe("tokens", function () {
                 .post(expectedPath)
                 .reply(401, "");
 
-            oauth2.authenticate(options, function (error, payload) {
+            oauth2.authenticate(options, true, function (error, payload) {
                 should.not.exist(payload);
                 should.exist(error);
                 login.done();
@@ -71,7 +71,7 @@ describe("tokens", function () {
                 .post(expectedPath)
                 .reply(200, invalidResponse);
 
-            oauth2.authenticate(options, function (error, payload) {
+            oauth2.authenticate(options, true, function (error, payload) {
                 should.exist(error);
                 should.not.exist(payload);
                 login.done();
@@ -100,7 +100,7 @@ describe("tokens", function () {
                 .post(expectedPath)
                 .reply(200, mockResponse);
 
-            oauth2.authenticate(options, function (error, payload) {
+            oauth2.authenticate(options, true, function (error, payload) {
                 should.not.exist(error);
                 payload.should.eql(mockResponse);
                 login.done();
@@ -122,7 +122,7 @@ describe("tokens", function () {
                 .post(expectedPath)
                 .reply(200, mockResponse);
 
-            oauth2.password(options, function (error, payload) {
+            oauth2.password(options, true, function (error, payload) {
                 should.not.exist(error);
                 payload.should.eql(mockResponse);
                 login.done();
@@ -143,7 +143,7 @@ describe("tokens", function () {
                 .post(expectedPath)
                 .reply(200, mockResponse);
 
-            oauth2.refresh(options, function (error, payload) {
+            oauth2.refresh(options, true, function (error, payload) {
                 should.not.exist(error);
                 payload.should.eql(mockResponse);
                 login.done();
