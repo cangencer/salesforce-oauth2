@@ -2,7 +2,9 @@
   "name": "salesforce-oauth2",
   "description": "Salesforce OAuth2 Web Server Authentication Flow",
   "homepage": "",
-  "keywords": [ "salesforce" ],
+  "keywords": [
+    "salesforce"
+  ],
   "author": {
     "name": "Can Gencer",
     "email": "cgencer@gmail.com"
@@ -14,18 +16,21 @@
   "main": "lib/salesforce-oauth2",
   "version": "0.1.5",
   "dependencies": {
-    "request": "2.16.x",
-    "underscore": "1.4.x"
+    "request": "~2.21.0",
+    "underscore": "~1.4.4",
+    "should": "~1.2.2",
+    "nock": "~0.17.5",
+    "mocha": "~1.9.0"
   },
   "devDependencies": {
     "mocha": "1.9.x",
-    "should" : "1.2.x",
-    "nock" : "0.17.x"
+    "should": "1.2.x",
+    "nock": "0.17.x"
   },
   "engines": {
-    "node" : "> 0.6"
+    "node": "> 0.6"
   },
-  "scripts" : {
-    "test" : "./node_modules/mocha/bin/mocha"
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
   }
 }
