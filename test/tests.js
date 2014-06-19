@@ -17,6 +17,20 @@ describe("when getting the authorization url", function () {
     });
 });
 
+describe("when getting a custom authorization url", function () {
+
+    it("should return url with correct parameters", function () {
+        var uri = oauth2.getAuthorizationUrl({
+            base_url: "https://sb1dev-uofnextension.cs10.force.com",
+            redirect_uri:"http://some/callback/url",
+            client_id:"someconsumerkey",
+            scope:"api"
+        });
+        uri.should.equal("https://sb1dev-uofnextension.cs10.force.com/services/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Fsome%2Fcallback%2Furl&client_id=someconsumerkey&scope=api");
+    });
+
+});
+
 describe("tokens", function () {
     var mockResponse = {
         id:"https://login.salesforce.com/id/00Dd0000000dsWLEAY/005d0000000b8kWAAQ",
