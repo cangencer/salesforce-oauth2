@@ -92,6 +92,21 @@ describe("tokens", function () {
                 done();
             });
         });
+       
+        it("should accept a custom authentication URL", function(done) {
+             options.base_url = "https://custom-login.salesforce.com";
+             var login = nock(options.base_url)
+                .post(expectedPath)
+                .reply(200, mockResponse);
+                                    
+            oauth2.authenticate(options, function (error, payload) {
+                should.not.exist(error);
+                payload.should.eql(mockResponse);
+                login.done();
+                done();
+            });
+
+        });
     });
 
     describe("when authenticating with an authorization code", function() {
