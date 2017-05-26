@@ -28,7 +28,9 @@ app.get("/", function(request, response) {
 	var uri = oauth2.getAuthorizationUrl({
 		redirect_uri: callbackUrl,
 		client_id: consumerKey,
-		scope: 'api'
+		scope: 'api',
+		// You can change loginUrl to connect to sandbox or prerelease env.
+		//base_url: 'test.my.salesforce.com'
 	});
 	return response.redirect(uri);
 });
@@ -40,7 +42,9 @@ app.get('/oauth/callback', function(request, response) {
 		redirect_uri: callbackUrl,
 		client_id: consumerKey,
 		client_secret: consumerSecret,
-		code: authorizationCode
+		code: authorizationCode,
+		// You can change loginUrl to connect to sandbox or prerelease env.
+		//base_url: 'test.my.salesforce.com'
 	}, function(error, payload) {
 		/*
 
