@@ -30,7 +30,7 @@ app.get("/", function(request, response) {
 		client_id: consumerKey,
 		scope: 'api',
 		// You can change loginUrl to connect to sandbox or prerelease env.
-		//base_url: 'test.my.salesforce.com'
+		//base_url: 'https://test.my.salesforce.com'
 	});
 	return response.redirect(uri);
 });
@@ -44,7 +44,7 @@ app.get('/oauth/callback', function(request, response) {
 		client_secret: consumerSecret,
 		code: authorizationCode,
 		// You can change loginUrl to connect to sandbox or prerelease env.
-		//base_url: 'test.my.salesforce.com'
+		//base_url: 'https://test.my.salesforce.com'
 	}, function(error, payload) {
 		/*
 
