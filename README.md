@@ -24,11 +24,12 @@ var callbackUrl = "<your callback url>",
 
 var app = express.createServer(express.logger());
 
+
 app.get("/", function(request, response) {
 	var uri = oauth2.getAuthorizationUrl({
 		redirect_uri: callbackUrl,
 		client_id: consumerKey,
-		scope: 'api',
+		scope: 'api', // 'id api web refresh_token'
 		// You can change loginUrl to connect to sandbox or prerelease env.
 		//base_url: 'https://test.my.salesforce.com'
 	});
@@ -83,3 +84,24 @@ app.listen(3000, function() {
 	console.log("Listening on 3000");
 });
 ````
+
+## Getting refresh_token
+
+To get refresh_token you must pass 'refresh_token' word on scope. 
+Remember to add a Available OAuth Scopes - refresh_token to Selected OAuth Scopes in your console developer 
+Example:
+````javascript
+	app.get("/", function(request, response) {
+		var uri = oauth2.getAuthorizationUrl({
+			redirect_uri: callbackUrl,
+			client_id: consumerKey,
+			scope: 'api refresh_token',
+			// You can change loginUrl to connect to sandbox or prerelease env.
+			//base_url: 'https://test.my.salesforce.com'
+		});
+		return response.redirect(uri);
+	});
+````
+
+## Util links to setup your connected app salesforce
+* [Create Connected App](https://help.salesforce.com/articleView?id=connected_app_create.htm&type=5)
