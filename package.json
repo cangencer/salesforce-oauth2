@@ -16,7 +16,7 @@
   "main": "lib/salesforce-oauth2",
   "version": "0.1.8",
   "dependencies": {
-    "request": "~2.37.0",
+    "request": "~2.85.0",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
