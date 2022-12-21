@@ -16,11 +16,11 @@
   "main": "lib/salesforce-oauth2",
   "version": "0.2.0",
   "dependencies": {
-    "request": "~2.85.0",
+    "request": "~2.88.2",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
-    "mocha": "~1.20.1",
+    "mocha": "^10.2.0",
     "nock": "~0.42.1",
     "should": "~4.0.4"
   },
@@ -28,6 +28,6 @@
     "node": ">= 4"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "mocha"
   }
 }
